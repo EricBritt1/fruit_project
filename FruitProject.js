@@ -1,5 +1,6 @@
 const input = document.querySelector('#fruit');
 const suggestions = document.querySelector('.suggestions ul');
+const listDiv = document.querySelector('.suggestions')
 
 const fruit = ['Apple', 'Apricot', 'Avocado 🥑', 'Banana', 'Bilberry', 'Blackberry', 'Blackcurrant', 'Blueberry', 'Boysenberry', 'Currant', 'Cherry', 'Coconut', 'Cranberry', 'Cucumber', 'Custard apple', 'Damson', 'Date', 'Dragonfruit', 'Durian', 'Elderberry', 'Feijoa', 'Fig', 'Gooseberry', 'Grape', 'Raisin', 'Grapefruit', 'Guava', 'Honeyberry', 'Huckleberry', 'Jabuticaba', 'Jackfruit', 'Jambul', 'Juniper berry', 'Kiwifruit', 'Kumquat', 'Lemon', 'Lime', 'Loquat', 'Longan', 'Lychee', 'Mango', 'Mangosteen', 'Marionberry', 'Melon', 'Cantaloupe', 'Honeydew', 'Watermelon', 'Miracle fruit', 'Mulberry', 'Nectarine', 'Nance', 'Olive', 'Orange', 'Clementine', 'Mandarine', 'Tangerine', 'Papaya', 'Passionfruit', 'Peach', 'Pear', 'Persimmon', 'Plantain', 'Plum', 'Pineapple', 'Pomegranate', 'Pomelo', 'Quince', 'Raspberry', 'Salmonberry', 'Rambutan', 'Redcurrant', 'Salak', 'Satsuma', 'Soursop', 'Star fruit', 'Strawberry', 'Tamarillo', 'Tamarind', 'Yuzu'];
 
@@ -27,10 +28,9 @@ function searchHandler(e) {
 	if(userInput.length === 0) {
 		let newUpdatedReturn = search('jhvvvhjvjhv');
 		showSuggestions(newUpdatedReturn, userInput)
+		listDiv.classList.toggle('addColor')
 	};
-	// else if(e.target.value = '') {
-	// !showSuggestions(updatedReturn,userInput)
-	// }
+
 	
 };
 
@@ -40,6 +40,7 @@ function showSuggestions(results, inputVal) {
 	results.filter(function (word) {
 		let li = document.createElement('li')
 		li.innerText = word.toLowerCase();
+		listDiv.classList.add('addColor')
 		suggestions.append(li)
 	})
 }
@@ -57,25 +58,3 @@ function useSuggestion(e) {
 input.addEventListener('keyup', searchHandler);
 suggestions.addEventListener('click', useSuggestion);
 
-// if(inputVal.length < 1) {
-// 	if(suggestions.hasChildNodes()) {
-// 		results = []
-// 	}
-// }
-// else if(inputVal.length === 1) {
-// 	results.filter(function (word) {
-// 		let li = document.createElement('li')
-// 		li.innerText = word;
-// 		suggestions.append(li)
-// 	})
-// }
-// else if (inputVal.length > 1) {
-// 	if(suggestions.hasChildNodes()){
-// 		suggestions.innerHTML = '';
-// 	}
-// 	results.filter(function (word) {
-// 		let li = document.createElement('li')
-// 		li.innerText = word;
-// 		suggestions.append(li)
-// 	})
-// }
